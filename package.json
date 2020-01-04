@@ -1,0 +1,15 @@
+{
+  "name": "app-socketio-list",
+  "version": "1.0.0",
+  "description": "Project using Socket.io",
+  "main": "server.js",
+  "scripts": {
+    "server": "node server.js"
+  },
+  "author": "Rafael Alves",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}

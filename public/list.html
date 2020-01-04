@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>List</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js"></script>
+</head>
+<body>
+
+    <nav>
+        <a href="http://localhost:3000/register">Register</a> |
+        <a href="http://localhost:3000/list">List</a> 
+    </nav>
+
+    <h3>List</h3>
+    <ul id="list"></ul>
+
+    <script type="text/javascript">
+        var socket = io('http://localhost:3000');
+
+        function renderUsers(user) {
+            const ul = document.getElementById('list');
+            const li = document.createElement('li');
+            li.appendChild(document.createTextNode(user));
+            ul.appendChild(li);
+        }
+
+        socket.on('receivedUsers', function(users) {
+            users.forEach(user => {
+                renderUsers(user);
+            });
+        })
+
+        socket.on('receivedUser', function(user) {
+            renderUsers(user);
+        })
+    </script>
+</body>
+</html>
