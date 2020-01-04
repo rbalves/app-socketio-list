@@ -9,7 +9,7 @@ npm install
 npm run server
 
 ## Routes
-/register
+/register  
 /list
 
 # Prerequisites
